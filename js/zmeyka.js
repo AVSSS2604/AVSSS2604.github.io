@@ -3,7 +3,7 @@ let score = 0
 
 const config  ={
 step: 0,
-maxStep: 7,
+maxStep: 8,
 sizeCell: 16,
 sizeBerry: 16 / 4
 }
@@ -61,7 +61,7 @@ if(snake.tails.length > snake.maxTails){
 
 snake.tails.forEach(function(el,index){
     if(index == 0){
-        context.fillStyle = "#00FF00";
+        context.fillStyle = "#008000";
     }else{
         context.fillStyle = "#ADFF2F";
     }
