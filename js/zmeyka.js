@@ -27,6 +27,10 @@ let context = canvas.getContext("2d")
 scoreBlock = document.querySelector(".game-score .score-count")
 drawScore()
 
+let score_audio =  new Audio()
+
+score_audio.src = "audio/score.mp3 "
+
 function gameLoop(){
 
     requestAnimationFrame(gameLoop);
@@ -126,6 +130,7 @@ function randomPositionBerry(){
 
 function incScore() {
     score++;
+    score_audio.play()
     drawScore();
 }
 
