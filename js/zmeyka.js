@@ -157,3 +157,39 @@ document.addEventListener("keydown", function(e){
         snake.dy = 0;
     }
 });
+
+
+
+var initialPoint;
+var finalPoint;
+document.addEventListener('touchstart', function(event) {
+event.preventDefault();
+event.stopPropagation();
+initialPoint=event.changedTouches[0];
+}, false);
+document.addEventListener('touchend', function(event) {
+event.preventDefault();
+event.stopPropagation();
+finalPoint=event.changedTouches[0];
+var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+if (xAbs > 20 || yAbs > 20) {
+if (xAbs > yAbs) {
+if (finalPoint.pageX < initialPoint.pageX){snake.dx = -config.sizeCell
+    snake.dy = 0;
+/*СВАЙП ВЛЕВО*/}
+else{snake.dx = config.sizeCell
+    snake.dy = 0;
+/*СВАЙП ВПРАВО*/}
+}
+else {
+if (finalPoint.pageY < initialPoint.pageY){snake.dy = -config.sizeCell
+    snake.dx = 0;
+/*СВАЙП ВВЕРХ*/}
+else{snake.dy = config.sizeCell
+    snake.dx = 0;
+/*СВАЙП ВНИЗ*/}
+}
+}
+}, false);
+
